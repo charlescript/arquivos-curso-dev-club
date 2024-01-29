@@ -1,0 +1,27 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+ }
+
+ div {
+    height: 700px;
+    width: 700px;
+    background: blue;
+ }
+             /* e */
+ @media screen and (max-width: 600px) and (orientation: landscape){
+    div{
+        background-color: red;
+        height: 200px;
+        width: 200px;
+    }
+ }
+
+ /* @media print and (max-width: 600px){
+    div{
+        background-color: red;
+        height: 200px;
+        width: 200px;
+    }
+ } */
