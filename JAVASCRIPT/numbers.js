@@ -11,6 +11,4 @@ const result = numberOne * numberTwo;
 const result2 = numberOne * myString;
 
 console.log(result);
-
-
 console.log(result2);
