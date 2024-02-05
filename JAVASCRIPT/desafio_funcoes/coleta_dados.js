@@ -65,7 +65,7 @@ function media_salario(people){
 
     let media = total / people.length;
 
-    return media.toFixed(2);
+    return media.toFixed(0);
 }
 //----------------------------------------------------------
 
@@ -80,7 +80,7 @@ function media_filhos(people){
 
     let media = total / people.length;
 
-    return media.toFixed(2);
+    return media.toFixed(0);
 }
 
 //----------------------------------------------------------
