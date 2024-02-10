@@ -8,7 +8,7 @@ const students = [
     { name: "Julio", testeGrade: 11 }
 ]
 
-const newStudents = students.map( (student) => {
+const newStudents = students.map( student => {
 
     function verifyNota(nota){
 
