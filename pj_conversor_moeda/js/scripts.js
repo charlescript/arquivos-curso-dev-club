@@ -3,6 +3,7 @@ const select = document.getElementById('currency-select');
 
 const dolar = 4.97;
 const euro = 5.35;
+const bitcoin = 257730.31;
 
 const convertValues = () => {
     // Pegando o volor do real no campo input
@@ -37,6 +38,11 @@ const convertValues = () => {
             // console.log("Converte euro");
         }
 
+        if (select.value === "Bitcoin") {
+            currencyValueText.innerHTML = (inputReal / bitcoin);
+            // console.log("Converte euro");
+        }
+
     } else {
         // Trate o caso em que o campo está vazio
         currencyValueText.innerHTML = "Digite um valor para ser convertido!";
@@ -63,6 +69,11 @@ const changeCurrency = () => {
             currencyName.innerHTML = "Euro";
             currencyImg.src = './assets/uniao-europeia.png';
             break;
+
+            case "Bitcoin":
+                currencyName.innerHTML = "Bitcoin";
+                currencyImg.src = './assets/bitcoin.png';
+                break;
 
         default:
             console.log("Moeda indefinida nesse escopo");
