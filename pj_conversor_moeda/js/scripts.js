@@ -14,7 +14,7 @@ const convertValues = () => {
     // Pegando o valor do dolar e setando na apresentação
     const currencyValueText = document.getElementById("currency-value-text");
     
-    if (inputValue !== "") {
+    if (inputValue !== "" && !/[a-zA-Z]/.test(inputValue)) {
         realValueText.innerHTML = new Intl.NumberFormat('pt-br', {
             style: 'currency',
             currency: 'BRL'
