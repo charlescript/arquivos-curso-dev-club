@@ -22,16 +22,21 @@ app.use(express.json());
 
 const users = [];
 
-const myFirstMiddleware = (request, response, next) => {
-    console.log('Fui chamado "Middleware" ');
+// Criando middleware para validar ID
+const checkUserId = (request, response, next ) => {
+    const { id } = request.params;
 
-    next();
+    const index = users.findIndex( user => user.id === id);
+    if(index < 0 ){
+        return response.status(404).json({ error: "User not found "});
+    }
 
-    console.log('Finalizamos')
+    request.userIndex = index;
+    request.userId = id;
+
+    next()
 }
 
-
-app.use(myFirstMiddleware)
 
 app.get('/users', (request, response) => {
 
@@ -52,17 +57,13 @@ app.post('/users', (request, response) => {
 })
 
 
-app.put('/users/:id', (request, response) => {
-    const { id } = request.params;
+app.put('/users/:id', checkUserId, (request, response) => {
+
+    const id = request.userId;
     const {name, age} = request.body;
+    const index = request.userIndex;
 
     const updatedUser = { id, name, age }
-
-    const index = users.findIndex( user => user.id === id)
-
-    if(index < 0) {
-        return response.status(404).json({ message: "User not found" });
-    }
     
     users[index] = updatedUser;
     
@@ -70,14 +71,8 @@ app.put('/users/:id', (request, response) => {
 })
 
 
-app.delete('/users/:id', (request, response) => {
-    const { id } = request.params;
-
-    const index = users.findIndex( user => user.id === id);
-
-    if( index < 0 ) {
-        return response.status(404).json({ message: "User not found "});
-    }
+app.delete('/users/:id', checkUserId, (request, response) => {
+    const index = request.userIndex
 
     users.splice(index, 1);
 
