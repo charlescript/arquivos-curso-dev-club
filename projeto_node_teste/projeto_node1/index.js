@@ -53,6 +53,22 @@ app.put('/users/:id', (request, response) => {
 })
 
 
+app.delete('/users/:id', (request, response) => {
+    const { id } = request.params;
+
+    const index = users.findIndex( user => user.id === id);
+
+    if( index < 0 ) {
+        return response.status(404).json({ message: "User not found "});
+    }
+
+    users.splice(index, 1);
+
+    //return response.status(204).json(users);
+     return response.json(users);
+})
+
+
 app.listen(port, () => {
     console.log(`🆗 --> Server started on port ${port} <-- 🚀`)
 });
