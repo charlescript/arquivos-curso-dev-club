@@ -16,9 +16,15 @@ app.use(express.json());
  *      POST           => Criar informação no back end
  *      PUT / PATCH    => alterar / Atualizar informação no back end
  *      DELETE         => deletar informação no backend
+ * 
+ *      MIDDLEWARE => INTERCEPTADOR => Tem o poder de parar ou alterar dados da requisição
  */
 
 const users = [];
+
+const myFirstMiddleware = (request, response, next) => {
+    
+}
 
 app.get('/users', (request, response) => {
     return response.json(users);
