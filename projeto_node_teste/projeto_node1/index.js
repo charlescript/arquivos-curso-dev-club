@@ -23,12 +23,23 @@ app.use(express.json());
 const users = [];
 
 const myFirstMiddleware = (request, response, next) => {
-    
+    console.log('Fui chamado "Middleware" ');
+
+    next();
+
+    console.log('Finalizamos')
 }
 
+
+app.use(myFirstMiddleware)
+
 app.get('/users', (request, response) => {
+
+    //console.log('A rota para requisição de usuários foi chamada')
+
     return response.json(users);
 })
+
 
 
 app.post('/users', (request, response) => {
