@@ -1,0 +1,17 @@
+Iniciar o node dentro da pasta ->  npm init -y 
+
+Baixar a biblioteca express -> npm install express
+
+------------------------------------------------------------------------------------
+
+Instalar o nodemon para startar o server -> npm install nodemon -D
+ depois no arquivo package.json inserir em scripts o -> "dev":"nodemon"
+ 
+para startar servidor é -> npm run dev
+
+------------------------------------------------------------------------------------
+
+Instalar a biblioteca uuid -> npm install uuid
+serve para gerar ids unicos nos objetos
+
+------------------------------------------------------------------------------------
