@@ -9,7 +9,10 @@ function multi (firstNumber , secondNumber){
 const person = {
     name: "Charles",
     age: 28
-}
+};
 
-module.exports = {sum, multi, person};
+ //module.exports = {sum, multi, person};
 
+this.persona = person;
+this.soma = sum;
+this.multi = multi;

@@ -17,7 +17,12 @@
  *      => Local -> Por exemplo, dentro de uma função
  */
 
+global.console.log("Hello");
+
 const name = "Charles";  // Escopo global
+
+console.log(this === module.exports);
+
 
 function myName() {
     const myName = "Charles"; // Escopo local
