@@ -41,7 +41,7 @@ const checkUserId = (request, response, next ) => {
 
 app.get('/users', (request, response) => {
 
-    //console.log('A rota para requisição de usuários foi chamada')
+    console.log('A rota para requisição de usuários foi chamada')
 
     return response.json(users);
 })
@@ -50,11 +50,18 @@ app.get('/users', (request, response) => {
 
 app.post('/users', (request, response) => {
 
-    const {name, age} = request.body;
-    const user = { id:uuid.v4(), name, age }
-    users.push(user);
+    try {
+        const {name, age} = request.body;
 
-    return response.status(201).json(users);
+        if(age < 18) throw new Error("Only allowed users over 18 years old")  // Se tiver menos de 18 anos, crio um erro
+
+        const user = { id:uuid.v4(), name, age }
+        users.push(user);
+
+        return response.status(201).json(users);
+    } catch(err){
+        return response.status(500).json({error: err.message});
+    }
 })
 
 
