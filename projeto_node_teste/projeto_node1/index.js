@@ -60,9 +60,12 @@ app.post('/users', (request, response) => {
 
         return response.status(201).json(users);
     } catch(err){
-        return response.status(500).json({error: err.message});
+        return response.status(400).json({error: err.message});
+    } finally {
+        console.log("Terminou a rota de inserção de usuário!")
     }
-})
+
+});
 
 
 app.put('/users/:id', checkUserId, (request, response) => {
