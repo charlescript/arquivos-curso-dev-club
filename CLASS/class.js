@@ -14,8 +14,16 @@
 // }
 
 class Person {
-    name;
-    age;
+
+    constructor(name, age){
+        //console.log(`Hello ${name}`)
+
+        this.name = name
+        this.age = age
+    }
+
+    // name;
+    // age;
 
     talk() {
         console.log(`Hello my name is ${this.name} and i have ${this.age} years old`);
@@ -23,11 +31,12 @@ class Person {
 }
 
 
-const person1 = new Person();
-const person2 = new Person();
-const person3 = new Person();
+const person1 = new Person("Charles", 28);
+const person2 = new Person("Maria", 33);
+const person3 = new Person("Larissa", 27);
 
-person1.name = "Charles";
-person1.age = 28;
+
 
 person1.talk();
+person2.talk();
+person3.talk();
