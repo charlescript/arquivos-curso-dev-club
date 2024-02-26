@@ -1,17 +1,28 @@
 const button = document.getElementById('convert-button');
 const select = document.getElementById('currency-select');
 
-const dolar = 4.97;
-const euro = 5.35;
-const bitcoin = 257730.31;
+// const dolar = 4.97;
+// const euro = 5.35;
+// const bitcoin = 257730.31;
 
-const convertValues = () => {
+// AXIOS
+
+
+const convertValues = async () => {  // Utilizando função assíncrona
     // Pegando o volor do real no campo input
     const inputReal = parseFloat(document.getElementById('input-real').value.trim());
     const realValueText = document.getElementById("real-value-text");
-
     const inputValue = document.getElementById('input-real').value.trim(); // Trim para remover espaços em branco extras
+
+    // assync await
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then( response => response.json() )
+
+    const dolar = data.USDBRL.high;
+    const euro = data.EURBRL.high;
+    const bitcoin = data.BTCBRL.high;
     
+    
+    console.log(data);
     // Pegando o valor do dolar e setando na apresentação
     const currencyValueText = document.getElementById("currency-value-text");
     
