@@ -12,6 +12,8 @@ h1 {
     margin: 10px;
     border: 1px solid #9758A6;
     display: flex;
+    width: 800px;
+    height: 800px;
 }
 
 .block {
@@ -24,4 +26,6 @@ h1 {
     font-weight: bold;
     text-align: center;
     margin: 10px;
+    height: 100px;
+    width: 100px;
 }
