@@ -12,13 +12,12 @@ h1 {
     margin: 10px;
     border: 1px solid #9758A6;
     display: flex;
-    width: 800px;
-    height: 800px;
+    height: 700px;
 }
 
 .block {
     width: 100px;
-    height: 100px;
+    /* height: 100px; */
     background: #CDD728;
     border: 5px solid #9758A6;
     border-radius: 5px;
@@ -26,6 +25,4 @@ h1 {
     font-weight: bold;
     text-align: center;
     margin: 10px;
-    height: 100px;
-    width: 100px;
 }
